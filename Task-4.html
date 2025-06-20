@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(30, 30, 30, 0.95);
+      color: #fff;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f59e0b;
+    }
+
+    section {
+      padding: 6rem 0 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero {
+      padding-top: 8rem;
+      text-align: center;
+      background: linear-gradient(145deg, #e0f2fe, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #1f2937;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4b5563;
+      margin-top: 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      color: #1f2937;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #3b82f6;
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 10px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.8rem 0;
+      border: none;
+      border-radius: 8px;
+      background: #f9fafb;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #3b82f6;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #2563eb;
+    }
+
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      nav a { margin: 0.5rem 0; }
+    }
+  </style>
+  <script>
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll("section").forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 150) {
+          section.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div><strong>MyPortfolio</strong></div>
+        <div>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Hello, I'm Varshitha Vemula</h1>
+      <p>A creative and passionate Web Developer</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I am a full-stack web developer with a passion for creating dynamic and user-friendly websites. With expertise in HTML, CSS, JavaScript, and modern frameworks, I enjoy crafting digital experiences that are beautiful, accessible, and performance-driven.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Responsive Portfolio</h3>
+          <p>A sleek personal site designed with advanced CSS and animations. Fully mobile-ready and visually polished.</p>
+        </div>
+        <div class="project-card">
+          <h3>Task Tracker</h3>
+          <p>A productivity web app to add, manage, and complete tasks. Built with JavaScript and local storage.</p>
+        </div>
+        <div class="project-card">
+          <h3>Weather Dashboard</h3>
+          <p>Real-time weather app using OpenWeather API with search and responsive layout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="email" placeholder="Your Email" required />
+  <textarea rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+<script>
+  function handleSubmit(event) {
+    <!-- event.preventDefault(); -->
+    const name = document.getElementById('name').value;
+    alert(`Thanks for reaching out, ${name}!`);
+  }
+</script>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Varshitha Crafted with ❤️</p>
+  </footer>
+
+</body>
+</html>
